@@ -1,6 +1,6 @@
 {
   "name": "dart",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "fileTypes": ["dart"],
   "scopeName": "source.dart",
   "foldingStartMarker": "\\{\\s*$",
@@ -306,7 +306,7 @@
         },
         {
           "name": "keyword.control.dart",
-          "match": "(?<!\\$)\\b(break|case|continue|default|do|else|for|if|in|return|switch|while|when)\\b(?!\\$)"
+          "match": "(?<!\\$)\\b(break|case|continue|default|do|else|for|if|in|switch|while|when)\\b(?!\\$)"
         },
         {
           "name": "keyword.control.dart",
@@ -319,6 +319,10 @@
         {
           "name": "keyword.control.new.dart",
           "match": "(?<!\\$)\\b(new)\\b(?!\\$)"
+        },
+        {
+          "name": "keyword.control.return.dart",
+          "match": "(?<!\\$)\\b(return)\\b(?!\\$)"
         },
         {
           "name": "keyword.declaration.dart",
