@@ -161,6 +161,9 @@
           "include": "#self"
         },
         {
+          "include": "#func"
+        },
+        {
           "include": "#letter"
         },
         {
@@ -271,6 +274,10 @@
       "match": "\\bself\\b",
       "name": "variable.language.gdscript"
     },
+    "func": {
+      "match": "\\bfunc\\b",
+      "name": "keyword.language.gdscript"
+    },
     "logic_operator": {
       "match": "\\b(and|or|not|!)\\b",
       "name": "keyword.operator.wordlike.gdscript"
@@ -378,6 +385,20 @@
       },
       "end": "$|;",
       "patterns": [
+        {
+          "match": "(:)?\\s*(set|get)\\s+=\\s+([a-zA-Z_]\\w*)",
+          "captures": {
+            "1": {
+              "name": "punctuation.separator.annotation.gdscript"
+            },
+            "2": {
+              "name": "keyword.language.gdscript storage.type.const.gdscript"
+            },
+            "3": {
+              "name": "entity.name.function.gdscript"
+            }
+          }
+        },
         {
           "match": ":=|=(?!=)",
           "name": "keyword.operator.assignment.gdscript"

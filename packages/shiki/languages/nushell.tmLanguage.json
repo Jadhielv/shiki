@@ -173,8 +173,13 @@
       "name": "keyword.other.nushell"
     },
     "parameters": {
-      "match": "\\b-{1,2}[\\w-]*",
-      "name": "variable.parameter.nushell"
+      "match": "(?<=\\s)(-{1,2})[\\w-]+",
+      "name": "variable.parameter.nushell",
+      "captures": {
+        "1": {
+          "name": "keyword.control.nushell"
+        }
+      }
     },
     "variables": {
       "match": "(\\$[a-zA-Z0-9_]+)((?:\\.(?:[\\w-]+|\"[\\w\\- ]+\"))*)",
@@ -262,8 +267,12 @@
         }
       ]
     },
+    "spread": {
+      "match": "\\.\\.\\.(?=[^\\s\\]}])",
+      "name": "keyword.control.nushell"
+    },
     "ranges": {
-      "match": "\\.\\.<?|:",
+      "match": "\\.\\.<?",
       "name": "keyword.control.nushell"
     },
     "operators-word": {
@@ -303,14 +312,14 @@
       "name": "meta.table.nushell",
       "patterns": [
         {
+          "include": "#spread"
+        },
+        {
           "include": "#value"
         },
         {
           "match": ",",
           "name": "punctuation.separator.nushell"
-        },
-        {
-          "include": "#comment"
         }
       ]
     },
@@ -363,8 +372,13 @@
     "function-parameter": {
       "patterns": [
         {
-          "match": "((?:-{0,2}|\\.{3})[\\w-]+)(?:\\((-[\\w?])\\))?",
-          "name": "variable.parameter.nushell"
+          "match": "(-{0,2}|\\.{3})[\\w-]+(?:\\((-[\\w?])\\))?",
+          "name": "variable.parameter.nushell",
+          "captures": {
+            "1": {
+              "name": "keyword.control.nushell"
+            }
+          }
         },
         {
           "begin": "\\??:\\s*",
@@ -839,6 +853,9 @@
           "name": "meta.record-entry.nushell"
         },
         {
+          "include": "#spread"
+        },
+        {
           "include": "source.nushell"
         }
       ]
@@ -973,6 +990,12 @@
       "name": "meta.command.nushell",
       "patterns": [
         {
+          "include": "#parameters"
+        },
+        {
+          "include": "#spread"
+        },
+        {
           "include": "#value"
         }
       ]
@@ -1022,9 +1045,6 @@
         },
         {
           "include": "#table"
-        },
-        {
-          "include": "#parameters"
         },
         {
           "include": "#operators"
