@@ -1038,7 +1038,7 @@
       "name": "comment.line.number-sign.crystal"
     },
     {
-      "match": "\\b_([\\w]+[?!]?)\\b(?!\\()",
+      "match": "(?<!}})\\b_([\\w]+[?!]?)\\b(?!\\()",
       "name": "comment.unused.crystal"
     },
     {
